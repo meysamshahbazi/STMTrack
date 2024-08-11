@@ -1,6 +1,18 @@
 # STMTrack
 This is the official implementation of the paper: [STMTrack: Template-free Visual Tracking with Space-time Memory Networks](https://arxiv.org/abs/2104.00324).
  
+## TODOs:
+* retrain with already code
+
+* change backbone to simpler model 
+
+* create ci cd for convert to onnx in scrip form 
+
+* use nano or light track idea 
+
+
+
+
 
 ## Setup
 * Prepare Anaconda, CUDA and the corresponding toolkits. CUDA version required: 10.0+
