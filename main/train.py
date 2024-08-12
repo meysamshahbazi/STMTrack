@@ -152,5 +152,9 @@ if __name__ == '__main__':
             logger.info('Validation ends.')
 
     # export final model
+    
+    
+    
+    
     trainer.save_snapshot(model_param_only=True)
     logger.info("Training completed.")
