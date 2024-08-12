@@ -71,3 +71,5 @@ venv
 *.onnx
 *.trt
 debug
+
+dataset/*
