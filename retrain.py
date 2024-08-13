@@ -38,8 +38,7 @@ def set_seed(seed):
     np.random.seed(seed)
     torch.manual_seed(seed)
 
-parsed_args_config = 'experiments/stmtrack/train/got10k/stmtrack-googlenet-trn-edited.yaml'
-# experiments/stmtrack/train/fulldata/stmtrack-googlenet-trn-fulldata.yaml
+parsed_args_config = 'experiments/stmtrack/train/got10k/stmtrack-effnet-trn.yaml'
 
 exp_cfg_path = osp.realpath(parsed_args_config)
 
@@ -102,7 +101,10 @@ optimizer = optim_builder.build(task, task_cfg.optim, model)
 
 trainer = engine_builder.build(task, task_cfg.trainer, "trainer", optimizer,
                                    dataloader)
+
 trainer.set_device(devs)
+parsed_args_resume = "0"
+trainer.resume(parsed_args_resume)
 
 # Validator initialization
 root_cfg.test.track.freeze()
