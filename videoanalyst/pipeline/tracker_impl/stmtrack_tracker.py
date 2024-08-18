@@ -33,8 +33,8 @@ class STMTrackTracker(PipelineBase):
         penalty_k=0.0,
         window_influence=0.0,
         windowing="cosine",
-        m_size=0,
-        q_size=0,
+        m_size=200,
+        q_size=200,
         min_w=10,
         min_h=10,
         phase_memorize="memorize",
@@ -297,6 +297,7 @@ class STMTrackTracker(PipelineBase):
         else:
             features = self.select_representatives(fidx)
 
+        # print(features.shape)
         # forward inference to estimate new state
         target_pos, target_sz = self.track(im,
                                            target_pos_prior,

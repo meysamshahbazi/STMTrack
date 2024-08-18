@@ -98,6 +98,9 @@ def get_crop_numpy(im: np.ndarray, pos: np.ndarray, sample_sz: np.ndarray, outpu
         os = posl % df  # offset
         posl = (posl - os) // df  # new position
         im2 = im[os[0].item()::df, os[1].item()::df, :]  # downsample
+        # print(im2.shape)
+        # print(os)
+        # print(df)
     else:
         im2 = im
 
@@ -142,11 +145,20 @@ def get_crop_numpy(im: np.ndarray, pos: np.ndarray, sample_sz: np.ndarray, outpu
         M_22,
         M_23,
     ]).reshape(2, 3)
-    im_patch = cv2.warpAffine(im2,
-                              mat2x3, (output_sz[0], output_sz[1]),
+
+    # cv2.imshow("im2", im2)
+    # print("im2 shape ", im2.shape)
+    # print(os)
+
+    im_patch = cv2.warpAffine(im2, mat2x3, 
+                              (output_sz[0], output_sz[1]),
                               flags=(cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP),
                               borderMode=cv2.BORDER_CONSTANT,
                               borderValue=tuple(map(int, avg_chans)))
+    
+
+    # cv2.imshow("im_patch", im_patch)
+    # cv2.waitKey(0)
     # Get image coordinates
     patch_coord = df * np.concatenate([tl, br]).reshape(1, 4)
     scale = output_sz / (np.array([br[1] - tl[1] + 1, br[0] - tl[0] + 1]) * df)

@@ -28,7 +28,7 @@ test:
       task_model:
         name: "STMTrack"
         STMTrack:
-          pretrain_model_path: "snapshots/stmtrack-effnet-got-train/epoch-0.pkl"
+          pretrain_model_path: "snapshots/stmtrack-effnet-adam-got-train-lr-mdim-8/epoch-8.pkl"
     pipeline:
       name: "STMTrackTracker"
       STMTrackTracker:
@@ -48,5 +48,5 @@ test:
         exp_save: *TEST_SAVE
         data_root: "datasets/GOT-10k"
         subsets: ["test"]
-        device_num: 4
+        device_num: 1
 #        verbose: true

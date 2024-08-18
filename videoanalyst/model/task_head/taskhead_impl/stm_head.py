@@ -82,6 +82,7 @@ class STMHead(ModuleBase):
         self.si = torch.nn.Parameter(torch.tensor(1.).type(torch.Tensor))
 
     def memory_read(self, fm, fq):
+        # print(fm.size())
         B, C, T, H, W = fm.size()
         fm0 = fm.clone()
         fq0 = fq.clone()
@@ -150,7 +151,7 @@ class STMHead(ModuleBase):
 
     def _make_net(self):
         self.in_channels = self._hyper_params["in_channels"]
-        mdim = 256
+        mdim = 8 # 256
 
         self.cls_ctr = ConvModule(self.in_channels * 2, mdim)
         self.reg = ConvModule(self.in_channels * 2, mdim)

@@ -114,7 +114,8 @@ model = model_builder.build(task, task_cfg.model)
 
 # model_file = "new-epoch-19.pkl"
 # model_file = "/home/meysam/test-apps/STMTrack/epoch-19_got10k.pkl"
-model_file = "/home/meysam/test-apps/STMTrack/snapshots/stmtrack-effnet-got-train/epoch-0.pkl"
+# model_file = "/home/meysam/test-apps/STMTrack/snapshots/stmtrack-effnet-got-train/epoch-1.pkl"
+model_file = "/home/meysam/test-apps/STMTrack/snapshots/stmtrack-effnet-adam-got-train-lr/epoch-16.pkl"
 # model_file = "epoch-19.pkl"
 
 
@@ -175,20 +176,20 @@ for f, img_file in enumerate(img_files):
 		times[f] = time.time() - start_time
 
 		# visualiation         
-		image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+		# image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 		pred = boxes[f,:].astype(int)
 		
 
 		# image = cv2.resize(image,(1920,1080))
-		image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+		# image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 		cv2.rectangle(image, (pred[0], pred[1]),
 				(pred[0] + pred[2], pred[1] + pred[3]),
 				(255,0,0), 2)
 				
-		line = str(pred[0])+','+str(pred[1])+','+str(pred[2])+','+str(pred[3])+'\n'
+		# line = str(pred[0])+','+str(pred[1])+','+str(pred[2])+','+str(pred[3])+'\n'
 		# print(line)
 		# my_file.writelines(line)
-		cv2.imshow(g,image)
+		cv2.imshow(g, image)
 		print("FPS: ",1/times[f])
 		# cv2.waitKey(0)        
 		if cv2.waitKey(1)  == 27:
