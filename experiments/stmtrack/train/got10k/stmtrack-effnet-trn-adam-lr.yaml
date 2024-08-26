@@ -1,7 +1,7 @@
 test:
   track:
     exp_name: &TEST_NAME "got10k"
-    exp_save: &TEST_SAVE "logs/stmtrack-effnet-adam-got-train-val-mdim-8"
+    exp_save: &TEST_SAVE "logs/stmtrack-effnet-adam-got-train-val-mdim-32"
     pipeline:
       name: "STMTrackTracker"
       STMTrackTracker:
@@ -24,7 +24,7 @@ test:
         device_num: 1
 train:
   track:
-    exp_name: &TRAIN_NAME "stmtrack-effnet-adam-got-train-val-mdim-8"
+    exp_name: &TRAIN_NAME "stmtrack-effnet-adam-got-train-val-mdim-32"
     exp_save: &TRAIN_SAVE "snapshots"
     num_processes: 1
     model:
@@ -74,7 +74,7 @@ train:
     data:
       exp_name: *TRAIN_NAME
       exp_save: *TRAIN_SAVE
-      num_epochs: &NUM_EPOCHS 20
+      num_epochs: &NUM_EPOCHS 60
       minibatch: &MINIBATCH 32  # 256 # 32
       num_workers: 20 # 32
       nr_image_per_epoch: &NR_IMAGE_PER_EPOCH 150000

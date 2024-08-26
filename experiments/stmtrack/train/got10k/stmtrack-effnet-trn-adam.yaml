@@ -20,7 +20,7 @@ test:
         exp_name: *TEST_NAME
         exp_save: *TEST_SAVE
         subsets: ["val"]
-        data_root: "/media/meysam/hdd2/GOT-10K/GOT-10k"
+        data_root: "/media/meysam/ssd/GOT-10k"
         device_num: 1
 train:
   track:
@@ -74,9 +74,9 @@ train:
     data:
       exp_name: *TRAIN_NAME
       exp_save: *TRAIN_SAVE
-      num_epochs: &NUM_EPOCHS 20
+      num_epochs: &NUM_EPOCHS 60
       minibatch: &MINIBATCH 32  # 256 # 32
-      num_workers: 32 # 32
+      num_workers: 20 # 32
       nr_image_per_epoch: &NR_IMAGE_PER_EPOCH 150000
       pin_memory: true
       datapipeline:
@@ -92,7 +92,7 @@ train:
             GOT10kDataset: &GOT10KDATASET_CFG
               ratio: 1.0
               max_diff: 50
-              dataset_root: "/media/meysam/hdd2/GOT-10K/GOT-10k"
+              dataset_root: "/media/meysam/ssd/GOT-10k"
               subset: "train"
             GOT10kDatasetFixed: *GOT10KDATASET_CFG  # got10k dataset with exclusion of unfixed sequences
           filter:

@@ -151,7 +151,7 @@ class STMHead(ModuleBase):
 
     def _make_net(self):
         self.in_channels = self._hyper_params["in_channels"]
-        mdim = 8 # 256
+        mdim = 32 # 256
 
         self.cls_ctr = ConvModule(self.in_channels * 2, mdim)
         self.reg = ConvModule(self.in_channels * 2, mdim)
