@@ -23,6 +23,7 @@ test:
       task_head:
         name: "STMHead"
         STMHead:
+          mdim : 32
           total_stride: &TEST_TOTAL_STRIDE 8
           score_size: &TEST_SCORE_SIZE 25
           q_size: &TEST_Q_SIZE 289

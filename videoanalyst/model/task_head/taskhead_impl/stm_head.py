@@ -69,6 +69,7 @@ def get_box(xy_ctr, offsets):
 @TRACK_HEADS.register
 class STMHead(ModuleBase):
     default_hyper_params = dict(
+        mdim = 31,
         total_stride=8,
         score_size=0,
         q_size=0,
@@ -151,7 +152,8 @@ class STMHead(ModuleBase):
 
     def _make_net(self):
         self.in_channels = self._hyper_params["in_channels"]
-        mdim = 32 # 256
+        mdim = self._hyper_params["mdim"]
+        # mdim = 32 # 256
 
         self.cls_ctr = ConvModule(self.in_channels * 2, mdim)
         self.reg = ConvModule(self.in_channels * 2, mdim)

@@ -21,6 +21,7 @@ test:
       task_head:
         name: "STMHead"
         STMHead:
+          mdim : 16
           total_stride: &TEST_TOTAL_STRIDE 8
           score_size: &TEST_SCORE_SIZE 25
           q_size: &TEST_Q_SIZE 200
@@ -28,7 +29,7 @@ test:
       task_model:
         name: "STMTrack"
         STMTrack:
-          pretrain_model_path: "snapshots/stmtrack-effnet-adam-got-train-val-mdim-32/epoch-10.pkl"
+          pretrain_model_path: "snapshots/stmtrack-effnet-adam-got-train-val-mdim-16/epoch-10.pkl"
     pipeline:
       name: "STMTrackTracker"
       STMTrackTracker:

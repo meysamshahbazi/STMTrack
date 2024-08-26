@@ -38,10 +38,8 @@ def set_seed(seed):
     np.random.seed(seed)
     torch.manual_seed(seed)
 
-# parsed_args_config = 'experiments/stmtrack/train/got10k/stmtrack-effnet-trn.yaml'
-# parsed_args_config = 'experiments/stmtrack/train/got10k/stmtrack-effnet-trn-adam.yaml'
-# parsed_args_config = 'experiments/stmtrack/train/got10k/stmtrack-effnet-trn-adam-lr.yaml'
-parsed_args_config = 'experiments/stmtrack/train/fulldata/stmtrack-effnet-trn-lasot.yaml'
+parsed_args_config = 'experiments/stmtrack/train/got10k/stmtrack-effnet-trn-adam-lr.yaml'
+# parsed_args_config = 'experiments/stmtrack/train/fulldata/stmtrack-effnet-trn-lasot.yaml'
 
 exp_cfg_path = osp.realpath(parsed_args_config)
 

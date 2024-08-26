@@ -1,7 +1,7 @@
 test:
   track:
     exp_name: &TEST_NAME "got10k"
-    exp_save: &TEST_SAVE "logs/stmtrack-effnet-adam-got-train-val-mdim-32"
+    exp_save: &TEST_SAVE "logs/stmtrack-effnet-adam-got-train-val-mdim-18"
     pipeline:
       name: "STMTrackTracker"
       STMTrackTracker:
@@ -24,7 +24,7 @@ test:
         device_num: 1
 train:
   track:
-    exp_name: &TRAIN_NAME "stmtrack-effnet-adam-got-train-val-mdim-32"
+    exp_name: &TRAIN_NAME "stmtrack-effnet-adam-got-train-val-mdim-18"
     exp_save: &TRAIN_SAVE "snapshots"
     num_processes: 1
     model:
@@ -61,6 +61,7 @@ train:
       task_head:
         name: "STMHead"
         STMHead:
+          mdim: 18
           total_stride: 8
           score_size: &TRAIN_SCORE_SIZE 25
           q_size: &TRAIN_Q_SIZE 200
